@@ -8,13 +8,17 @@ using UnityEngine.SceneManagement;
 /// 톱니바퀴 버튼을 누르면 설정씬으로 이동합니다.
 /// </summary>
 /// <remarks>
-/// SettingScene의 SceneNumber=5로 두고 있습니다.
+/// String: SettingScene
 /// </remarks>
 /// 
 public class AYK_SceneController : MonoBehaviour
 {
     public void OnClick_GoToSetting(Object Target)
     {
-        SceneManager.LoadScene(5);
+        SceneManager.LoadScene("SettingScene");
+    }
+    public void OnClick_GoToMyPage(Object Target)
+    {
+        SceneManager.LoadScene("MyPageScene");
     }
 }
