@@ -14,8 +14,6 @@ public class DialogueManager : MonoBehaviour
     /// </summary>
     public TextMeshProUGUI dialogueText;
     public GameObject goAndDefeatButton;
-    public string buildingMonsterKey;
-
     /// <summary>
     /// 시작 시 잡으러가기 버튼을 숨김
     /// </summary>
