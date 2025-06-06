@@ -17,11 +17,16 @@ public class TutorialDialogueController : MonoBehaviour
 {
     public TextMeshProUGUI dialogueText;
     public RectTransform imageToMove;  // 위치 변경할 이미지의 RectTransform
+
+    public Button nextButton; 
+
     public GameObject image2;
     public GameObject image3;
+    public GameObject image4;
 
     public Image[] floatingImagesGroup1;    // image2 하위 이미지들을 배열로 받기
     public Image[] floatingImagesGroup2;    // image3 하위 이미지들을 배열로 받기
+    public Image[] floatingImagesGroup3;    // image3 하위 이미지들을 배열로 받기
 
     // 대사 리스트
     private string[] dialogues = {
@@ -33,10 +38,11 @@ public class TutorialDialogueController : MonoBehaviour
         "앗! 캠퍼스 곳곳에\n 몬스터가 나타났대요!",
         "[2]\n건물의 특정 스팟에서\n몬스터가 나타나요.",
         "친구벗과 함께\n몬스터가 내는 퀴즈를 맞추면\n물리칠 수 있어요 ",
-        "[3]건물 이름을 인식하면\n회복 아이템을 얻을 수 있어요.",
+        "[3]\n건물 이름을 인식하면\n회복 아이템을 얻을 수 있어요.",
         "이 아이템을 쓰면 전투 기회를\n한 번 더 얻을 수 있어요.",
         "[4]\n우측 상단의 톱니버튼을 누르면\nHome, My page, Map으로\n이동할 수 있어요.",
-        "My page에서는 획득한 건물 도감과\n처치한 몬스터를 확인할 수 있어요.",
+        "언제든지 여기서\n배경 음악도 끌 수 있어요",
+        "[5]\nMy page에서는\n획득한 건물 도감과\n처치한 몬스터를 확인할 수 있어요.",
         "자, 그럼 이제 이화 캠퍼스를\n함께 걸어볼까요?",
     };
 
@@ -50,6 +56,9 @@ public class TutorialDialogueController : MonoBehaviour
         typingCoroutine = StartCoroutine(TypeDialogue(dialogues[currentIndex]));
         image2.SetActive(false);
         image3.SetActive(false);
+        image4.SetActive(false);
+        nextButton.gameObject.SetActive(false); // 처음엔 안 보이게
+
     }
     void Update()
     {
@@ -76,7 +85,7 @@ public class TutorialDialogueController : MonoBehaviour
 
         if (currentIndex < dialogues.Length)
         {
-            if (currentIndex == 3 && !moved)            //설명 시작할 때 새로니 위치 변경
+            if (currentIndex == 6 && !moved)            //설명 시작할 때 새로니 위치 변경
             {
                 imageToMove.anchoredPosition = new Vector2(150, -120);
                 imageToMove.sizeDelta = new Vector2(150, 190);
@@ -90,17 +99,28 @@ public class TutorialDialogueController : MonoBehaviour
             {
                 image2.SetActive(true);
                 image3.SetActive(false);
-                if(currentIndex == 6) StartCoroutine(ShowFloatingImages(floatingImagesGroup1));
+                image4.SetActive(false);
+                if (currentIndex == 6) StartCoroutine(ShowFloatingImages(floatingImagesGroup1));
 
             }
             else if (currentIndex == 8 || currentIndex == 9) //아이템 출력
             {
                 image2.SetActive(false);
                 image3.SetActive(true);
+                image4.SetActive(false);
                 if (currentIndex == 8) StartCoroutine(ShowFloatingImages(floatingImagesGroup2));
             }
-            else if (currentIndex == 12)
+            else if (currentIndex == 10 || currentIndex == 11)
             {
+                image2.SetActive(false);
+                image3.SetActive(false); 
+                image4.SetActive(true);
+                if (currentIndex == 10) StartCoroutine(ShowFloatingImages(floatingImagesGroup3));
+
+            }
+            else if (currentIndex == 13)
+            {
+                image4.SetActive(false);
                 imageToMove.anchoredPosition = new Vector2(0, 40);
                 imageToMove.sizeDelta = new Vector2(255, 300);
             }
@@ -108,6 +128,7 @@ public class TutorialDialogueController : MonoBehaviour
             {
                 image2.SetActive(false);
                 image3.SetActive(false);
+                image4.SetActive(false);
             }
 
             typingCoroutine = StartCoroutine(TypeDialogue(dialogues[currentIndex]));
@@ -119,6 +140,9 @@ public class TutorialDialogueController : MonoBehaviour
             Debug.Log("튜토리얼 종료");
             image2.SetActive(false);
             image3.SetActive(false);
+            image4.SetActive(false);
+
+            nextButton.gameObject.SetActive(true);
         }
     }
     IEnumerator ShowFloatingImages(Image[] images, float delay = 0.2f, float duration = 0.5f)

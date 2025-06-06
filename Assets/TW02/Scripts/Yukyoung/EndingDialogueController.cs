@@ -1,5 +1,10 @@
 using UnityEngine;
 using TMPro;
+/// <summary>
+/// Author: 안유경
+/// 몬스터를 모두 처치하면 나오는 엔딩씬의 대사를 다루는 클래스입니다.
+/// 화면을 클릭하면 다음 대사로 넘어갑니다.
+/// </summary>
 
 public class EndingDialogueController : MonoBehaviour
 {
