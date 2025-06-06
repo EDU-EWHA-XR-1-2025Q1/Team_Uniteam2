@@ -816,6 +816,14 @@ MonoBehaviour:
   imageToMove: {fileID: 1771907715}
   image2: {fileID: 2138156232}
   image3: {fileID: 943424517}
+  floatingImagesGroup1:
+  - {fileID: 2085786550}
+  - {fileID: 386274663}
+  - {fileID: 1467843531}
+  - {fileID: 737472015}
+  floatingImagesGroup2:
+  - {fileID: 985391276}
+  - {fileID: 1937354798}
 --- !u!4 &878276698
 Transform:
   m_ObjectHideFlags: 0
