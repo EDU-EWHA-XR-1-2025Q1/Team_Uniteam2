@@ -1,7 +1,12 @@
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI; // Image 컴포넌트 사용 시 필요
-
+/// <summary>
+/// Author: 안유경
+/// 어플 이용 방법을 소개하는 튜토리얼 대사를 다루는 클래스입니다.
+/// 화면을 클릭하면 다음 대사로 넘어갑니다.
+/// 튜토리얼이 끝나면 PlayerPrefs.SetInt("Tutorial", 1);으로 설정하고 튜토리얼을 종료합니다.
+/// </summary>
 public class TutorialDialogueController : MonoBehaviour
 {
     public TextMeshProUGUI dialogueText;
