@@ -1,10 +1,13 @@
 using UnityEngine;
-
+/// <summary>
+/// Author: 안유경
+/// 새로니 캐릭터에 통통 튀는 듯한 효과를 주기 위한 스크립트입니다.
+/// </summary>
 public class CharMovingController : MonoBehaviour
 {
     public RectTransform target;
-    public float duration = 1f;       // 진동 시간
-    public float magnitude = 10f;        // 진동 크기 (너무 크면 과하게 튐)
+    public float duration = 1f;         // 진동 시간
+    public float magnitude = 10f;       // 진동 크기 (너무 크면 과하게 튐)
     public int frequency = 4;           // 진동 횟수 (높을수록 많이 튐)
 
     private Vector3 originalPos;
