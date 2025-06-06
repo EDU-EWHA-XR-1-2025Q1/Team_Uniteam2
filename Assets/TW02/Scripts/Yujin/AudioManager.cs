@@ -3,6 +3,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 /// <summary>
@@ -59,6 +60,7 @@ public class AudioManager : MonoBehaviour
         bBgmOn = PlayerPrefs.GetInt(PREF_BGM_KEY, 1) == 1;
         ApplyBgmState();
         /*BGM Button UI 관련 로직들*/
+        SceneManager.sceneLoaded += OnSceneLoaded;
         bgmButtonImage = GameObject.Find("Button_BGM").GetComponent<Image>();
         UpdateBgmButtonColor();
         /*-----------------------------------------------------*/
@@ -81,6 +83,41 @@ public class AudioManager : MonoBehaviour
         ApplyBgmState();
     }
 
+
+    /// <summary>
+    /// 씬이 로드될 때 콜백되는 함수
+    /// </summary>
+    /// <remarks>
+    /// 버튼 색을 bgm on,off 상태에 맞게 업데이트합니다.
+    /// </remarks>
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        if(SceneManager.GetActiveScene().name == "SettingScene")
+        {
+            //씬 재로드 시 참조 끊기므로, 다시 참조 이어주기
+            var buttonObj = GameObject.Find("Button_BGM");
+            if (buttonObj != null)
+            {
+                bgmButtonImage = buttonObj.GetComponent<Image>();
+                //버튼의 OnClicked이벤트를 항상 오디오매니저로 연결
+                var btn = buttonObj.GetComponent<Button>();
+                if (btn != null)
+                {
+                    //중복방지
+                    btn.onClick.RemoveAllListeners();
+                    btn.onClick.AddListener(ToggleBgm);
+                }
+            }
+            else
+            {
+                bgmButtonImage = null;
+            }
+
+            // 씬이 로드될 때마다 버튼 이미지의 컬러를 업데이트합니다.
+            UpdateBgmButtonColor();
+        }
+        
+    }
 
 
     /*-----------------------------------------------------*/
