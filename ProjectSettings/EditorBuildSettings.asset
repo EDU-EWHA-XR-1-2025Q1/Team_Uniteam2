@@ -8,9 +8,6 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/SamplesResources/Scenes/0-Main.unity
     guid: a09cb257d566c489595b16ab37547666
-  - enabled: 1
-    path: Assets/TW02/Scenes/Yukyoung/TutorialScene.unity
-    guid: b57f6fa4e98cf7949b8acbfff1738bd7
   m_configObjects:
     UnityEditor.XR.ARCore.ARCoreSettings: {fileID: 11400000, guid: 0ab60333998a4554499192989d96004a,
       type: 2}
