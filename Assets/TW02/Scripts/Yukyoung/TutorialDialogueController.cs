@@ -37,7 +37,7 @@ public class TutorialDialogueController : MonoBehaviour
         "이 아이템을 쓰면 전투 기회를\n한 번 더 얻을 수 있어요.",
         "[4]\n우측 상단의 톱니버튼을 누르면\nHome, My page, Map으로\n이동할 수 있어요.",
         "My page에서는 획득한 건물 도감과\n처치한 몬스터를 확인할 수 있어요.",
-        "그럼 이제 이화 캠퍼스를\n함께 걸어볼까요?",
+        "자, 그럼 이제 이화 캠퍼스를\n함께 걸어볼까요?",
     };
 
     private int currentIndex = 0;
