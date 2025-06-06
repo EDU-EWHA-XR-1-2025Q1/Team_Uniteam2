@@ -13,6 +13,19 @@ public class DialogueManager : MonoBehaviour
     /// 대화 내용을 표시할 TextMeshProUGUI 컴포넌트입니다.
     /// </summary>
     public TextMeshProUGUI dialogueText;
+    public GameObject goAndDefeatButton;
+    public string buildingMonsterKey;
+
+    /// <summary>
+    /// 시작 시 잡으러가기 버튼을 숨김
+    /// </summary>
+    void Start()
+    {
+        if (goAndDefeatButton != null)
+        {
+            goAndDefeatButton.SetActive(false);
+        }
+    }
 
     /// <summary>
     /// 건물 설명을 화면에 표시합니다.
@@ -22,6 +35,10 @@ public class DialogueManager : MonoBehaviour
     public void ShowBuildingInfo(string buildingKey, string description)
     {
         dialogueText.text = description;
+        if (goAndDefeatButton != null)
+        {
+            goAndDefeatButton.SetActive(false);
+        }
     }
 
     /// <summary>
@@ -32,5 +49,36 @@ public class DialogueManager : MonoBehaviour
     public void ShowItemInfo(string itemKey, string messageWithCount)
     {
         dialogueText.text = messageWithCount;
+        if (goAndDefeatButton != null)
+        {
+            goAndDefeatButton.SetActive(false);
+        }
     }
+
+    public void ShowMonsterAppeared(string buildingMonsterKey)
+    {
+        dialogueText.text = "몬스터가 나타났어! 몬스터를 처치해줘.";
+
+        // InGameMonsterScene에 처치대상 프리팹 넘겨주기
+        // 모든 몬스터 키를 0으로 초기화
+        PlayerPrefs.SetInt("AsanM", 0);
+        PlayerPrefs.SetInt("HakKwanM", 0);
+        PlayerPrefs.SetInt("HakMoonM", 0);
+        PlayerPrefs.SetInt("ECCM", 0);
+
+        // 현재 몬스터 키만 1로 설정
+        PlayerPrefs.SetInt(buildingMonsterKey, 1);
+
+        if (goAndDefeatButton != null)
+        {
+            goAndDefeatButton.SetActive(true);
+            Debug.Log("처치하기 버튼 등장");
+        }
+    }
+    public void OnMonsterDefeatButtonClicked()
+    {
+        // 몬스터 처치 씬으로 이동
+        UnityEngine.SceneManagement.SceneManager.LoadScene("InGameMonsterScene");
+    }
+
 }
