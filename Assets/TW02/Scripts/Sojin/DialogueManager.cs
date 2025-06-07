@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.XR.CoreUtils.Datums;
 using UnityEngine;
 
 /// <summary>
@@ -57,15 +58,6 @@ public class DialogueManager : MonoBehaviour
     {
         dialogueText.text = "몬스터가 나타났어! 몬스터를 처치해줘.";
 
-        // InGameMonsterScene에 처치대상 프리팹 넘겨주기
-        // 모든 몬스터 키를 0으로 초기화
-        PlayerPrefs.SetInt("AsanM", 0);
-        PlayerPrefs.SetInt("HakKwanM", 0);
-        PlayerPrefs.SetInt("HakMoonM", 0);
-        PlayerPrefs.SetInt("ECCM", 0);
-
-        // 현재 몬스터 키만 1로 설정
-        PlayerPrefs.SetInt(buildingMonsterKey, 1);
 
         if (goAndDefeatButton != null)
         {
@@ -75,6 +67,7 @@ public class DialogueManager : MonoBehaviour
     }
     public void OnMonsterDefeatButtonClicked()
     {
+        
         // 몬스터 처치 씬으로 이동
         UnityEngine.SceneManagement.SceneManager.LoadScene("InGameMonsterScene");
     }

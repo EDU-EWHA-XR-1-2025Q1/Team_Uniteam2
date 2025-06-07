@@ -58,13 +58,23 @@ public class MyPageDisplay : MonoBehaviour
     /// </summary>
     void UpdateMonsterSection()
     {
-        int count = PlayerPrefs.GetInt("MonsterCount", 0);
-        monsterCountText.text = $"몬스터 처치 ({count}/4)";
+        var monsterKeys = new string[] { "ECCM", "AsanM", "HakMoonM", "HakKwanM" };
+        int monsterCount = 0;
 
-        for (int i = 0; i < monsterImages.Length; i++)
+        for (int i = 0; i < monsterKeys.Length; i++)
         {
-            monsterImages[i].enabled = i < count;
+            string key = monsterKeys[i];
+            bool hasMonster = PlayerPrefs.GetInt(key, 0) != 0;
+            if (hasMonster)
+            {
+                monsterCount++;
+            }
+            if (i < monsterImages.Length)
+            {
+                monsterImages[i].color = hasMonster ? Color.white : new Color(1f, 1f, 1f, 0.3f);
+            }
         }
+        monsterCountText.text = $"몬스터 처치 ({monsterCount}/4)";
     }
 
     /// <summary>
@@ -74,13 +84,15 @@ public class MyPageDisplay : MonoBehaviour
     {
         for (int i = 0; i < buildingKeys.Length; i++)
         {
-            bool visited = PlayerPrefs.GetInt(buildingKeys[i] + "_Visited", 0) == 1;
+            // buildingKeys[i]는 "ECC", "Asan" 등 (M 접미사 없음)
+            // 빌딩 여부 확인 (키: buildingKeys[i])
+            bool hasBuilding = PlayerPrefs.GetInt(buildingKeys[i], 0) != 0;
 
-            // 이미지 투명도 조절
-            buildingImages[i].color = visited ? Color.white : new Color(1f, 1f, 1f, 0.3f);
+            // 빌딩 이미지 투명도 조절
+            buildingImages[i].color = hasBuilding ? Color.white : new Color(1f, 1f, 1f, 0.3f);
 
             // 텍스트 색상 조절
-            buildingTexts[i].color = visited ? Color.black : new Color(0.5f, 0.5f, 0.5f, 0.5f);
+            buildingTexts[i].color = hasBuilding ? Color.black : new Color(0.5f, 0.5f, 0.5f, 0.5f);
         }
     }
 }

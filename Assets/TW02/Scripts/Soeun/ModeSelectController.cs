@@ -8,15 +8,16 @@ public class ModeSelectController : MonoBehaviour
     public GameObject ModeSelectPanel;
     public GameObject QuizPanel;
 
+
     public void Alone()
     {
-        ModeSelectPanel.SetActive(false);
         QuizPanel.SetActive(true);
+        ModeSelectPanel.SetActive(false);
     }
 
     public void Together()
     {
-        ModeSelectPanel.SetActive(false);
         StudentNumInputPanel.SetActive(true);
+        ModeSelectPanel.SetActive(false);
     }
 }

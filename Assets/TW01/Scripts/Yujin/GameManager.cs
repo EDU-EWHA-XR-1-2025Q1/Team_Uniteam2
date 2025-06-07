@@ -31,7 +31,7 @@ public class GameManager : MonoBehaviour
     /// <summary>
     /// 싱글톤 인스턴스를 외부에서 접근할 수 있도록 제공하는 프로퍼티
     /// </summary>
-    public static GameManager Instance 
+    public static GameManager _Instance 
     {
         get {return _instance; }
         private set

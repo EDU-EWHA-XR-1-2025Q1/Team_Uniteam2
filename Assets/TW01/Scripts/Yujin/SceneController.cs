@@ -30,70 +30,27 @@ public class SceneController : MonoBehaviour
             return;
         }
 
-        MoveSceneWithInGameState(SceneName);
+        MoveScene(SceneName);
     }
 
     /// <summary>
     /// InGame 상태에 따라 씬을 이동하는 로직을 함수로 분리
     /// </summary>
-    /// <param name="SceneName"></param>
-    private void MoveSceneWithInGameState(string SceneName)
+    /// <param name="SceneName">
+    /// 씬이름을 넣습니다. *InGame일 경우, "InGame"으로 넣어주세요.
+    /// </param>
+    private void MoveScene(string SceneName)
     {
-        //현재 씬 이름이 "InGame"으로 시작하는지 확인후, InGame 씬 상태 저장
-        SetHW02InGameState();
-        //씬 이동
-        if (PlayerPrefs.GetInt("HW02_InGame_Monster") == 1)
+        if(SceneName == "InGame")
         {
-            SceneManager.LoadScene(SceneName.Trim() + "Monster" + "Scene");
+            // InGame 씬으로 이동
+            SceneManager.LoadScene("InGameRoadScene");
+            return;
         }
-        else if (PlayerPrefs.GetInt("HW02_InGame_Road") == 1)
-        {
-            SceneManager.LoadScene(SceneName.Trim() + "Road" + "Scene");
-        }
-        else
-        {
-            
-            //Trim() : 앞뒤 공백 제거
-            //만약 게임 하던 중이 아니면, 기본적으로 roadscene 이동
-            if(SceneName.Trim() == "InGame")
-            {
-                SceneManager.LoadScene(SceneName.Trim() + "Road" + "Scene");
-            }
-            SceneManager.LoadScene(SceneName.Trim());
-        }
+        SceneManager.LoadScene(SceneName.Trim());
+        
     }
 
-    /// <summary>
-    /// 현재 씬이 "InGame"으로 시작하는 경우, 현재 씬 상태 저장
-    /// </summary>
-    private void SetHW02InGameState()
-    {
-        string activedSceneName = SceneManager.GetActiveScene().name;
 
-        if (activedSceneName.Contains("InGame"))
-        {
-            if (activedSceneName.Contains("Monster"))
-            {
-                PlayerPrefs.SetInt("HW02_InGame_Monster", 1);
-                PlayerPrefs.SetInt("HW02_InGame_Road", 0);
-            }
-            else if (activedSceneName.Contains("Road"))
-            {
-                PlayerPrefs.SetInt("HW02_InGame_Road", 1);
-                PlayerPrefs.SetInt("HW02_InGame_Monster", 0);
-            }
-            PlayerPrefs.Save();
-        }
-        else if (activedSceneName == "SettingScene")
-        {
-            // 세팅씬에서는 이전 인게임 상태를 변경하지 않음
-            // 아무 동작도 하지 않음
-        }
-        else
-        {
-            PlayerPrefs.SetInt("HW02_InGame_Monster", 0);
-            PlayerPrefs.SetInt("HW02_InGame_Road", 0);
-        }
-    }
 }
 

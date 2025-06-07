@@ -61,8 +61,6 @@ public class AudioManager : MonoBehaviour
         ApplyBgmState();
         /*BGM Button UI 관련 로직들*/
         SceneManager.sceneLoaded += OnSceneLoaded;
-        bgmButtonImage = GameObject.Find("Button_BGM").GetComponent<Image>();
-        UpdateBgmButtonColor();
         /*-----------------------------------------------------*/
     }
 
