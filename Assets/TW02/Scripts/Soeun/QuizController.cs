@@ -5,13 +5,14 @@ using UnityEngine.SceneManagement;
 
 public class QuizController : MonoBehaviour
 {
-    public GameObject monster;
+    
     public GameObject mascot;
     public GameObject quizPanel;
     public TextMeshProUGUI questionText;
     public TextMeshProUGUI mascotText;
     public TextMeshProUGUI recoverItemNum;
 
+    private GameObject monster;
     private int currentQuizIndex = 0;
     private int attemptsLeft;
     private string building = null;
@@ -30,10 +31,16 @@ public class QuizController : MonoBehaviour
             Debug.LogError("현재 건물을 찾을 수 없습니다.");
             return;
         }
-        
-        currentQuizzes = quizBank[building];
+        string quizBankKey = building + "M"; 
+        currentQuizzes = quizBank[quizBankKey];
         attemptsLeft = PlayerPrefs.GetInt("IceTino", 0) + PlayerPrefs.GetInt("Cookie", 0);
+        InitMonster();
         ShowQuiz();
+    }
+
+    private void InitMonster()
+    {
+        monster = GameObject.Find(PlayerPrefs.GetString("CurrentMonster"));
     }
 
     private void InitQuizBank()
@@ -65,13 +72,13 @@ public class QuizController : MonoBehaviour
 
     private string GetCurrentBuildingKey()
     {
-        string[] keys = { "AsanM", "HakMoonM", "ECCM", "HakKwanM" };
-        foreach (var key in keys)
+        string currentBuding = PlayerPrefs.GetString("CurrentBuilding","null");
+
+        if (currentBuding.Equals("null"))
         {
-            if (PlayerPrefs.GetInt(key, 0) == 1)
-                return key;
+            return null;
         }
-        return null;
+        return currentBuding;
     }
 
     private void ShowQuiz()
@@ -99,9 +106,8 @@ public class QuizController : MonoBehaviour
             mascotText.text = quiz.mascotComment;
             monster.SetActive(false);
             quizPanel.SetActive(false);
-            PlayerPrefs.SetInt(building, 0);
-            PlayerPrefs.SetInt(building.Replace("M", ""), 1);
-            Invoke(nameof(SuccessMonster), 2f);
+            PlayerPrefs.SetInt(building+"M", 1);
+            Invoke(nameof(SuccessMonster), 4f);
             Debug.Log("정답!");
         }
         else
@@ -109,7 +115,6 @@ public class QuizController : MonoBehaviour
             if (attemptsLeft <= 0)
             {
                 mascotText.text = "기회가 모두 소진되었습니다!";
-                PlayerPrefs.SetInt(building, 0);
                 quizPanel.SetActive(false);
                 Debug.Log("퀴즈 실패");
                 Invoke(nameof(FailMonster), 2f);

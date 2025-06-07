@@ -33,6 +33,7 @@ public class BuildingTarget : MonoBehaviour
         {
             observerBehaviour.OnTargetStatusChanged += OnTargetStatusChanged;
         }
+        
     }
 
     /// <summary>
@@ -66,6 +67,12 @@ public class BuildingTarget : MonoBehaviour
         }
     }
 
+    public void OnTargetFoundSetCurrentBuilding()
+    {
+        // 건물 이름을 PlayerPrefs에 저장
+        PlayerPrefs.SetString("CurrentBuilding", buildingName);
+    }
+
     /// <summary>
     /// 매 프레임마다 사용자 입력을 감지하여 건물도감을 획득하도록 처리합니다.
     /// </summary>
@@ -75,8 +82,10 @@ public class BuildingTarget : MonoBehaviour
         // 아직 건물도감 획득 메시지를 보여주지 않았고, 마우스 클릭이 발생한 경우
         if (isWaitingForSecondClick && !hasShownFirstMessage && Input.GetMouseButtonDown(0))
         {
+           
             // 건물 방문 여부를 저장 (1 = 방문 완료)
             PlayerPrefs.SetInt(buildingKey, 1);
+
 
             // 건물도감을 획득했다는 메시지를 표시
             dialogueManager.ShowBuildingInfo(buildingKey, $"{buildingName}의 건물도감을 획득했어! 마이페이지의 건물도감에서 확인할 수 있어~");
@@ -84,6 +93,8 @@ public class BuildingTarget : MonoBehaviour
             // 메시지를 이미 표시했음을 기록하고, 두 번째 클릭 대기 상태 종료
             hasShownFirstMessage = true;
             isWaitingForSecondClick = false;
+          
+            
         }
     }
 

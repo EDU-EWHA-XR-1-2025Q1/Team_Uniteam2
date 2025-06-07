@@ -654,7 +654,19 @@ MonoBehaviour:
     m_RotationOrder: 4
   OnTargetFound:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 224354952}
+        m_TargetAssemblyTypeName: BuildingTarget, Assembly-CSharp
+        m_MethodName: OnTargetFoundSetCurrentBuilding
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   OnTargetLost:
     m_PersistentCalls:
       m_Calls: []
@@ -757,7 +769,7 @@ MonoBehaviour:
   buildingKey: Asan
   description: "\uC774\uACF3\uC740 \uC544\uC0B0\uACF5\uD559\uAD00, \uACF5\uB300\uAC74\uBB3C\uC774\uC57C~
     \uBD88\uC774 \uC808\uB300 \uAEBC\uC9C0\uC9C0 \uC54A\uB294 \uACF3\uC774\uC9C0..."
-  buildingName: "\uC544\uC0B0\uACF5\uD559\uAD00"
+  buildingName: Asan
   dialogueManager: {fileID: 786088300}
 --- !u!114 &381831900
 MonoBehaviour:
@@ -799,7 +811,19 @@ MonoBehaviour:
     m_RotationOrder: 4
   OnTargetFound:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 381831899}
+        m_TargetAssemblyTypeName: BuildingTarget, Assembly-CSharp
+        m_MethodName: OnTargetFoundSetCurrentBuilding
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   OnTargetLost:
     m_PersistentCalls:
       m_Calls: []
@@ -1167,7 +1191,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogueText: {fileID: 2089960943}
   goAndDefeatButton: {fileID: 449628067}
-  buildingMonsterKey: 
 --- !u!4 &786088301
 Transform:
   m_ObjectHideFlags: 0
@@ -1726,7 +1749,7 @@ MonoBehaviour:
   description: "\uC774\uACF3\uC740 \uD559\uAD00\uC774\uC57C! \uAC00\uC7A5 \uCD5C\uADFC\uC5D0
     \uC9C0\uC5B4\uC11C \uC2DC\uC124\uC774 \uC815\uB9D0 \uC88B\uC544. \uD6C4\uBB38\uACFC
     \uAC00\uAE4C\uC6CC!"
-  buildingName: "\uD559\uAD00"
+  buildingName: HakKwan
   dialogueManager: {fileID: 786088300}
 --- !u!114 &1043410696
 MonoBehaviour:
@@ -1768,7 +1791,19 @@ MonoBehaviour:
     m_RotationOrder: 4
   OnTargetFound:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1043410695}
+        m_TargetAssemblyTypeName: BuildingTarget, Assembly-CSharp
+        m_MethodName: OnTargetFoundSetCurrentBuilding
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   OnTargetLost:
     m_PersistentCalls:
       m_Calls: []
@@ -1972,11 +2007,11 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1050347288}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -134, y: -120}
-  m_SizeDelta: {x: 143.6861, y: 184.2402}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 130}
+  m_Pivot: {x: 0, y: 0}
 --- !u!114 &1149227461
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2049,7 +2084,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -8.8, y: -2.7000122}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 70, y: 40}
   m_Pivot: {x: 1, y: 0}
 --- !u!114 &1372924854
@@ -2100,13 +2135,13 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 25
-  m_fontSizeBase: 25
+  m_fontSize: 20
+  m_fontSizeBase: 20
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 1
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 256
   m_textAlignment: 65535
@@ -2391,11 +2426,11 @@ RectTransform:
   - {fileID: 449628071}
   m_Father: {fileID: 1050347288}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0}
-  m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: 120}
-  m_SizeDelta: {x: 440, y: 200}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 150}
+  m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &1539546558
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3013,7 +3048,7 @@ MonoBehaviour:
     \uAC74\uBB3C\uC5D0\uB294 \uB3D9\uC544\uB9AC\uBC29\uB4E4\uC774 \uAC00\uB4DD\uD558\uACE0,
     \uD559\uC0DD\uB4E4\uC774 \uD3B8\uD788 \uC274 \uC218 \uC788\uB294 \uACF5\uAC04\uC774
     \uB9CE\uC544."
-  buildingName: "\uD559\uC0DD\uBB38\uD654\uAD00"
+  buildingName: HakMoon
   dialogueManager: {fileID: 786088300}
 --- !u!114 &1932794097
 MonoBehaviour:
@@ -3055,7 +3090,19 @@ MonoBehaviour:
     m_RotationOrder: 4
   OnTargetFound:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1932794096}
+        m_TargetAssemblyTypeName: BuildingTarget, Assembly-CSharp
+        m_MethodName: OnTargetFoundSetCurrentBuilding
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   OnTargetLost:
     m_PersistentCalls:
       m_Calls: []
@@ -3553,7 +3600,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uB3CC\uC544\uB2E4\uB2C8\uBA74\uC11C \uAC74\uBB3C\uC744 \uCC3E\uC544\uBCF4\uC790~"
+  m_text: "\uB3CC\uC544\uB2E4\uB2C8\uBA74\uC11C \uAC74\uBB3C\uC744 \n\uCC3E\uC544\uBCF4\uC790~"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e67de44897add7540a0e10555d94a255, type: 2}
   m_sharedMaterial: {fileID: 3526529165424505372, guid: e67de44897add7540a0e10555d94a255,
@@ -3581,15 +3628,15 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 25
-  m_fontSizeBase: 23
+  m_fontSize: 18
+  m_fontSizeBase: 18
   m_fontWeight: 400
-  m_enableAutoSizing: 1
+  m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 25
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
-  m_VerticalAlignment: 256
+  m_HorizontalAlignment: 8
+  m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -3617,7 +3664,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -103.45856, y: 0, z: -91.714325, w: -61.172462}
+  m_margin: {x: -103.45856, y: 0, z: 87.19159, w: 7.637512}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -3645,10 +3692,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1539546557}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 16, y: 33.1}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchorMin: {x: 0.36600003, y: 0.27333334}
+  m_AnchorMax: {x: 0.9250001, y: 0.8333334}
+  m_AnchoredPosition: {x: 100.541954, y: -8}
+  m_SizeDelta: {x: -28.9161, y: 16}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:

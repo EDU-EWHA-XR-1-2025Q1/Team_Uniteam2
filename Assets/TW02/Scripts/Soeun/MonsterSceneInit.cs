@@ -1,5 +1,6 @@
 using UnityEngine;
 using TMPro;
+using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class MonsterSceneInit : MonoBehaviour
 {
@@ -14,29 +15,25 @@ public class MonsterSceneInit : MonoBehaviour
 
     private void Start()
     {
+        var monsterList = new GameObject[] { AsanMonster, HakMoonMonster, ECCMonster, HakKwanMonster };
         AsanMonster.SetActive(false);
         ECCMonster.SetActive(false);
         HakKwanMonster.SetActive(false);
         HakMoonMonster.SetActive(false);
 
-        var monsterList = new (int value, GameObject monsterObj, string name)[]
+        string currentMonster = PlayerPrefs.GetString("CurrentMonster");
+        foreach(var monster in monsterList)
         {
-            (PlayerPrefs.GetInt("AsanM", 0), AsanMonster, "아산공학관 몬스터"),
-            (PlayerPrefs.GetInt("HakMoonM", 0), HakMoonMonster, "학문관 몬스터"),
-            (PlayerPrefs.GetInt("ECCM", 0), ECCMonster, "ECC 몬스터"),
-            (PlayerPrefs.GetInt("HakKwanM", 0), HakKwanMonster, "학관 몬스터")
-        };
-
-        foreach (var (value, monsterObj, name) in monsterList)
-        {
-            if (value == 1)
+            if (monster.name.Equals(currentMonster))
             {
-                monsterObj.SetActive(true);
-                MonsterNameText.text = name;
+                monster.SetActive(true);
                 break;
             }
         }
-
+        
+        string monsterNameTextTmp = currentMonster + "onster";
+        MonsterNameText.text = monsterNameTextTmp;
+           
         RecoverItemNumText.text = (PlayerPrefs.GetInt("IceTino", 0) + PlayerPrefs.GetInt("Cookie", 0)).ToString();
 
     }

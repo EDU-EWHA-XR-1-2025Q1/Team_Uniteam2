@@ -37,5 +37,6 @@ public class ForNextMonsterScene : MonoBehaviour
     private void OnMouseDown()
     {
         dialogueManager.ShowMonsterAppeared(buildingMonsterKey);
+        PlayerPrefs.SetString("CurrentMonster", buildingMonsterKey);
     }
 }
