@@ -42,10 +42,11 @@ public class HW02GameManager : MonoBehaviour
         }
     }
     
-    private IEnumerator LoadEndingSceneOnce()
-    {
-        yield return null; // 한 프레임 대기(안전하게)
-        SceneManager.LoadScene("EndingScene");
-    }
+IEnumerator LoadEndingSceneOnce()
+{
+    //2초 쉬게 해줘
+    yield return new WaitForSeconds(2f); // 2초 대기
+    SceneManager.LoadScene("EndingScene");
+}
 }
 
