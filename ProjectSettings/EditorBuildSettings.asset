@@ -8,6 +8,30 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/SamplesResources/Scenes/0-Main.unity
     guid: a09cb257d566c489595b16ab37547666
+  - enabled: 1
+    path: Assets/TW02/Scenes/Soeun/InGameMonsterScene.unity
+    guid: d792034bc8c8bcf4fab5870388173c55
+  - enabled: 1
+    path: Assets/TW02/Scenes/Sojin/InGameRoadScene.unity
+    guid: a31c383d1ca1c2b4584c1ac87443879b
+  - enabled: 1
+    path: Assets/TW02/Scenes/Yujin/MapScene.unity
+    guid: d5492434f7dc5bf43b1b3fad26becca2
+  - enabled: 1
+    path: Assets/TW02/Scenes/Yujin/SettingScene.unity
+    guid: 947957580c0c7f042ba4c599ed1b4421
+  - enabled: 1
+    path: Assets/TW02/Scenes/Yewon/HomeScene.unity
+    guid: 8d5d94ad1a584b646a39f826e1f74ce8
+  - enabled: 1
+    path: Assets/TW02/Scenes/Yewon/MyPageScene.unity
+    guid: 1c163d0d04b5e664c8989a1ed90a7490
+  - enabled: 1
+    path: Assets/TW02/Scenes/Yukyoung/EndingScene.unity
+    guid: 8ba15509fc5d41244a004c27612c5ae7
+  - enabled: 1
+    path: Assets/TW02/Scenes/Yukyoung/TutorialScene.unity
+    guid: b57f6fa4e98cf7949b8acbfff1738bd7
   m_configObjects:
     UnityEditor.XR.ARCore.ARCoreSettings: {fileID: 11400000, guid: 0ab60333998a4554499192989d96004a,
       type: 2}
